@@ -1,4 +1,4 @@
-from DSLInterno import DSLSupermercado
+from DSL.Interno.DSLInterno import DSLSupermercado
 
 
 def cargar_supermercado():

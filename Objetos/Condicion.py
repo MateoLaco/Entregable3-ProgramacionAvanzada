@@ -1,4 +1,4 @@
-from Objetos.validaciones import entero
+from validaciones import entero
 
 
 class Condicion:

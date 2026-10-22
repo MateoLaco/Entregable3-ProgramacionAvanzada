@@ -1,5 +1,5 @@
 from Objetos.Condicion import Condicion
-from Objetos.validaciones import entero, numero, texto
+from validaciones import entero, numero, texto
 
 
 class Promocion:
