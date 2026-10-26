@@ -10,13 +10,10 @@ def _se_cumple(promocion, restantes):
 
 
 def calcular_compra(supermercado, items):
-    """Arma una Compra a partir de una lista de (código de producto, cantidad).
-
-    Las promociones se recorren de mayor a menor descuento y cada una se aplica
-    tantas veces como alcancen las unidades que todavía no tienen descuento:
-      - condición "= N": cada aplicación usa exactamente N unidades.
-      - condición ">= N": se aplica a todas las unidades restantes del producto.
-    """
+    # Construye una compra a partir de pares (código de producto, cantidad).
+    # Aplica las promociones de mayor a menor descuento sobre unidades disponibles.
+    # Cada promoción se repite mientras se cumplan todas sus condiciones.
+    # Con "= N" se usan N unidades; con ">= N", todas las restantes del producto.
     if not items:
         raise ValueError("La compra debe tener al menos un producto.")
 

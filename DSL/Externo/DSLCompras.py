@@ -24,7 +24,7 @@ parser_compras = Lark(
 
 
 class _ArmarCompras(Transformer):
-    """Convierte el árbol de Lark en una lista de compras [(código, cantidad), ...]."""
+    # Convierte el árbol de Lark en una lista de compras [(código, cantidad), ...].
 
     def NUMERO(self, token):
         return Decimal(token) if "." in token else int(token)
@@ -42,7 +42,7 @@ class _ArmarCompras(Transformer):
 
 
 def ejecutar_compras(supermercado, texto):
-    """Devuelve (mensajes, errores). Cada compra con error se descarta sin frenar las demás."""
+    # Devuelve (mensajes, errores). Cada compra con error se descarta sin frenar las demás.
     try:
         compras = _ArmarCompras().transform(parser_compras.parse(texto))
     except UnexpectedInput as error:

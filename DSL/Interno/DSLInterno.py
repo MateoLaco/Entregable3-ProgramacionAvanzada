@@ -5,7 +5,7 @@ from Objetos.Supermercado import Supermercado
 
 
 class DSLSupermercado:
-    """Crea objetos mediante builders sin acoplar el modelo a la sintaxis."""
+    # Crea objetos mediante builders sin acoplar el modelo a la sintaxis.
 
     def __init__(self):
         self._supermercado = Supermercado()

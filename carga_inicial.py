@@ -2,7 +2,7 @@ from DSL.Interno.DSLInterno import DSLSupermercado
 
 
 def cargar_supermercado():
-    """Única configuración inicial; devuelve el modelo y la lista de errores."""
+    # Única configuración inicial; devuelve el modelo y la lista de errores.
     dsl = DSLSupermercado()
     supermercado = (
         dsl
@@ -34,18 +34,3 @@ def cargar_supermercado():
         .finalizar()
     )
     return supermercado, dsl.errores
-
-
-if __name__ == "__main__":
-    supermercado, errores = cargar_supermercado()
-    for error in errores:
-        print(f"Error: {error}")
-    for producto in supermercado.productos.values():
-        print(f"Producto {producto.idProducto}: {producto.nombreProducto}, "
-              f"${producto.precioProducto:.2f}, categoría: {producto.categoriaProducto or ''}")
-    for promocion in supermercado.promociones.values():
-        print(f"Promoción {promocion.codigoPromocion}: {promocion.nombrePromocion}, "
-              f"{promocion.porcentajeDescuento}%")
-        for condicion in promocion.listaCondiciones:
-            print(f"  Producto {condicion.codigoProducto}: "
-                  f"cantidad {condicion.operador} {condicion.cantidad}")

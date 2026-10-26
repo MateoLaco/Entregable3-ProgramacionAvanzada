@@ -18,6 +18,5 @@ class Compra:
         if not listaLinea:
             raise ValueError("La compra debe tener al menos un producto.")
         self.listaLinea = listaLinea
-        # Lista de (código, nombre) de las promociones aplicadas
         self.promocionesAplicadas = promocionesAplicadas
         self.importeTotal = sum((linea.importe for linea in listaLinea), Decimal("0"))

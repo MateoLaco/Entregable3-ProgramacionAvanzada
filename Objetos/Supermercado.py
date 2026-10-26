@@ -5,7 +5,7 @@ from validaciones import entero
 
 
 class Supermercado:
-    """Modelo semántico compartido por el DSL interno y los DSL externos."""
+    # Modelo semántico compartido por el DSL interno y los DSL externos
 
     def __init__(self):
         self.productos = {}
@@ -28,7 +28,7 @@ class Supermercado:
         return self.productos[codigo]
 
     def actualizar_producto(self, codigo, **cambios):
-        """Los atributos que no vienen en cambios mantienen su valor anterior."""
+        # Los atributos no especificados conservan su valor anterior.
         actual = self.buscar_producto(codigo)
         nuevo = Producto(
             codigo,
@@ -68,7 +68,7 @@ class Supermercado:
         return self.promociones[codigo]
 
     def actualizar_promocion(self, codigo, **cambios):
-        """Si vienen condiciones, reemplazan a todas las anteriores."""
+        # Las condiciones nuevas reemplazan todas las condiciones anteriores.
         actual = self.buscar_promocion(codigo)
         nueva = Promocion(
             codigo,

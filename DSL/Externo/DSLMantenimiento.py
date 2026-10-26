@@ -50,7 +50,7 @@ parser_mantenimiento = Lark(
 
 
 class _ArmarInstrucciones(Transformer):
-    """Convierte el árbol de Lark en tuplas (acción, código, datos)."""
+    # Convierte el árbol de Lark en tuplas (acción, código, datos).
 
     def NUMERO(self, token):
         return Decimal(token) if "." in token else int(token)
@@ -147,11 +147,8 @@ _ACCIONES = {
 
 
 def ejecutar_mantenimiento(supermercado, texto):
-    """Devuelve (mensajes, errores).
-
-    Un error sintáctico cancela el archivo entero. Un error semántico solo
-    cancela la instrucción que lo produjo y se sigue con las demás.
-    """
+    # Devuelve (mensajes, errores). Un error sintáctico impide ejecutar el archivo.
+    # Un error semántico descarta solo esa instrucción y permite continuar.
     try:
         instrucciones = _ArmarInstrucciones().transform(parser_mantenimiento.parse(texto))
     except UnexpectedInput as error:
